@@ -1,0 +1,94 @@
+<div class="container">
+  <nav class="nav d-flex justify-content-between w-100 py-2">
+    <a
+      class="btn btn-primary text-light text-decoration-none"
+      href="/?user=admin"
+      ><ion-icon name="home"></ion-icon></ion-icon
+    ></a>
+    <a class="btn btn-secondary text-light text-decoration-none" href="/auth/logout"
+      >Logout</a
+    >
+  </nav>
+</div>
+<main>
+  <div class="container py-5">
+    <div class="row">
+      <h1>Dashboard</h1>
+      <p>Hello, Admin!</p>
+    </div>
+    <div class="row">
+      <div class="col">
+        <div class="d-flex justify-content-between">
+          <h2>User Table</h2>
+          <button
+            type="button"
+            class="btn btn-primary"
+            data-bs-toggle="modal"
+            data-bs-target="#addModal"
+          >
+            Create
+          </button>
+        </div>
+        <div class="table-responsive">
+          <table
+            class="
+              table table-hover table-light table-striped
+              align-middle
+              bordered
+              my-2
+            "
+          >
+            <thead class="table-primary text-center">
+              <tr>
+                <th>No.</th>
+                <th>Username</th>
+                <th>Password</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              <% if(user.length) { %> <% user.map((item, index) => { %>
+              <tr>
+                <th class="text-center"><%= index+1 %></th>
+                <th><%= item.username %></th>
+                <th>*********</th>
+                <th class="text-center">
+                  <a
+                    type="button"
+                    class="btn btn-warning editButton"
+                    data-bs-toggle="modal"
+                    data-bs-target="#updateModal"
+                    data-bs-id="<%= item.id %>"
+                    href="../dashboard/edit/<%= item.id %>"
+                  >
+                    Update
+                  </a>
+                  <a
+                    type="button"
+                    class="btn btn-danger deleteButton"
+                    data-bs-toggle="modal"
+                    data-bs-target="#deleteModal"
+                    data-bs-id="<%= item.id %>"
+                    href="../dashboard/delete/<%= item.id %>"
+                  >
+                    Delete
+                  </a>
+                </th>
+              </tr>
+              <% }) %> <% } else { %>
+              <tr>
+                <th class="text-center" colspan="4">Data still empty</th>
+              </tr>
+              <% } %>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+
+<%- include("components/update.ejs"); %> <%- include("components/create.ejs");
+%> <%- include("components/delete.ejs"); %> <%- include("components/alert"); %>
+
+<script src="/scripts/dashboard.js"></script>

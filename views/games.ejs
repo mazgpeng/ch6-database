@@ -1,0 +1,140 @@
+<!-- Header start -->
+<header>
+  <nav>
+    <div class="back_button">
+      <a href="/?user=<%= player.username %>">
+        <h2><</h2>
+      </a>
+    </div>
+    <div class="title">
+      <div class="title_logo">
+        <img
+          loading="lazy"
+          width="80px"
+          height="80px"
+          src="/assets/images/logo.png"
+          alt=""
+        />
+      </div>
+      <div class="title_text">
+        <h1
+          id="game"
+          class="text-uppercase"
+          data-id="<%= game.id %>"
+          data-match="<%= game.result %>"
+        >
+          Games Room : <%= game.room %>
+        </h1>
+      </div>
+    </div>
+  </nav>
+</header>
+<!-- Header end -->
+
+<div class="container">
+  <main class="main">
+    <!-- Player section start -->
+    <div class="player">
+      <div class="user_title text-uppercase">
+        <h2
+          id="player"
+          data-id="<%= player.id %>"
+          data-username="<%= player.username %>"
+        >
+          <%= player.username %>
+        </h2>
+      </div>
+      <div class="user_choice">
+        <button class="choice batu">
+          <img
+            loading="lazy"
+            width="128px"
+            height="128px"
+            src="/assets/images/batu.png"
+            alt="batu"
+          />
+        </button>
+
+        <button class="choice kertas">
+          <img
+            loading="lazy"
+            width="128px"
+            height="128px"
+            src="/assets/images/kertas.png"
+            alt="kertas"
+          />
+        </button>
+
+        <button class="choice gunting">
+          <img
+            loading="lazy"
+            width="128px"
+            height="128px"
+            src="/assets/images/gunting.png"
+            alt="gunting"
+          />
+        </button>
+      </div>
+    </div>
+    <!-- Player section end -->
+
+    <!-- Versus section start -->
+    <div id="vs_result" class="versus"></div>
+    <!-- Versus section end-->
+
+    <!-- Com section start -->
+    <div class="player">
+      <div class="user_title">
+        <h2 id="player-2" data-id="" data-username="COM">COM</h2>
+      </div>
+      <div class="user_choice">
+        <button class="choice batu">
+          <img
+            loading="lazy"
+            width="128px"
+            height="128px"
+            src="/assets/images/batu.png"
+            alt="batu"
+          />
+        </button>
+
+        <button class="choice kertas">
+          <img
+            loading="lazy"
+            width="128px"
+            height="128px"
+            src="/assets/images/kertas.png"
+            alt="kertas"
+          />
+        </button>
+
+        <button class="choice gunting">
+          <img
+            loading="lazy"
+            width="128px"
+            height="128px"
+            src="/assets/images/gunting.png"
+            alt="gunting"
+          />
+        </button>
+      </div>
+    </div>
+    <!-- Com section end-->
+
+    <!-- Reset button start -->
+    <div class="reset">
+      <button id="reset" type="reset">
+        <img
+          loading="lazy"
+          width="68px"
+          height="68px"
+          src="/assets/images/refresh.png"
+          alt="reset button"
+        />
+      </button>
+    </div>
+    <!-- Reset button end -->
+  </main>
+</div>
+<script src="/scripts/script.js"></script>
+<script src="/scripts/fetch.js"></script>
